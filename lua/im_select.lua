@@ -145,9 +145,9 @@ local function change_im_select(cmd, method)
     end
 
     if C.async_switch_im then
-        vim.fn.jobstart(table.concat(command, " "), { detach = true })
+        vim.fn.jobstart(command, { detach = true })
     else
-        local jobid = vim.fn.jobstart(table.concat(command, " "), { detach = false })
+        local jobid = vim.fn.jobstart(command, { detach = false })
         vim.fn.jobwait({ jobid }, 200)
     end
 end
